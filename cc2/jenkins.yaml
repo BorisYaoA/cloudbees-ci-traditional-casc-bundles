@@ -41,7 +41,7 @@ jenkins:
   viewsTabBar: "standard"
 advisor:
   acceptToS: true
-  email: "${admin_mail}"
+  email: ${admin_mail}
   excludedComponents:
     - "AgentsSystemConfiguration"
     - "AgentsJVMProcessSystemMetricsContents"
