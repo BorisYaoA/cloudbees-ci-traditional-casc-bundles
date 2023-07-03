@@ -1,0 +1,32 @@
+removeStrategy:
+  rbac: SYNC
+  items: NONE
+items:
+  - kind: multibranch
+    name: testJob
+    description: ''
+    displayName: testJob
+    orphanedItemStrategy:
+      defaultOrphanedItemStrategy:
+        pruneDeadBranches: true
+        daysToKeep: -1
+        numToKeep: -1
+        abortBuilds: false
+    projectFactory:
+      workflowBranchProjectFactory:
+        scriptPath: pipeline-template-examples/templates/simple-java-maven-app/Jenkinsfile
+    properties:
+      - envVars: {}
+    sourcesList:
+      - branchSource:
+          buildStrategies:
+            - skipInitialBuildOnFirstIndexingResetRevision: {}
+          source:
+            git:
+              traits:
+                - gitBranchDiscovery: {}
+              credentialsId: ''
+              id: c7c6d967-322d-4c98-be25-62eceac86f1e
+              remote: https://github.com/BorisYaoA/cloudbees-examples.git
+          strategy:
+            allBranchesSame: {}
